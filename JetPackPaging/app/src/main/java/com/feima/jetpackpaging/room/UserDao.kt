@@ -1,8 +1,6 @@
 package com.feima.jetpackpaging.room
 
-import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
-import androidx.paging.PagedList
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -29,4 +27,7 @@ interface UserDao {
      */
     @Query("DELETE FROM user")
     fun deleteAllUsers()
+
+    @Query("SELECT * FROM user")
+    fun dataSourceAll(): DataSource.Factory<Int, User>
 }
